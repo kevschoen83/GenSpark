@@ -57,9 +57,9 @@ class PlayGame {
 
     void Play() {
         generateRandomNumber();
-
+        setGuessCount(0);
         System.out.println("Hello! What is your name?");
-        setName(scanner.nextLine());
+        setName(scanner.next());
         System.out.println("Well, " + getName() + ", I am thinking of a number between 1 and 20.");
         System.out.println("Take a guess.");
         setPlayerGuess(scanner.nextInt());
@@ -88,8 +88,18 @@ class PlayGame {
                 }
             }
             if (getGuessCount() > 6) {
-                System.out.println("Game Over!  Too many attempts!");
-                break;
+                PrintGameOver();
+                //System.out.println("Game Over!  Too many attempts!");
+                //break;
+                System.out.println("Play again? (Y/N)");
+                String choice = scanner.next();
+                if (choice.equals("y") || choice.equals("Y")) {
+                    Play();
+                } else if (choice.equals("n") || choice.equals("N")) {
+                    System.out.println("Thank you for playing!");
+                    break;
+                    //setIsCorrect(true);
+                }
             }
         }
 
@@ -97,7 +107,10 @@ class PlayGame {
 
     void generateRandomNumber() {
         setRand((int) (Math.random() * 20));
-        System.out.println(getRand());
+    }
+
+    void PrintGameOver() {
+        System.out.println("Game Over!  Too many attempts!");
     }
 
 }
