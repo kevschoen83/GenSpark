@@ -59,48 +59,58 @@ class PlayGame {
         generateRandomNumber();
         setGuessCount(0);
         System.out.println("Hello! What is your name?");
-        setName(scanner.next());
-        System.out.println("Well, " + getName() + ", I am thinking of a number between 1 and 20.");
+        try {
+            setName(scanner.next());
+            System.out.println("Well, " + getName() + ", I am thinking of a number between 1 and 20.");
+        } catch (Exception e) {
+            System.out.println("Type Mismatch");
+        }
         System.out.println("Take a guess.");
-        setPlayerGuess(scanner.nextInt());
-        setGuessCount(getGuessCount()+1);
-        while (!getIsCorrect()) {
-            if (getPlayerGuess() > getRand()) {
-                System.out.println("Your guess is too high");
-                System.out.println("Take a guess.");
-                setPlayerGuess(scanner.nextInt());
-                setGuessCount(getGuessCount()+1);
-            } else if (getPlayerGuess() < getRand()) {
-                System.out.println("Your guess is too low.");
-                System.out.println("Take a guess");
-                setPlayerGuess(scanner.nextInt());
-                setGuessCount(getGuessCount()+1);
-            } else if (getPlayerGuess() == getRand()) {
-                System.out.println("Good job, " + getName() + "! You guessed my number in " + getGuessCount() + " guesses!");
-                //setIsCorrect(true);
-                System.out.println("Would you like to play again? ");
-                String choice = scanner.next();
-                if (choice.equals("y") || choice.equals("Y")) {
-                    Play();
-                } else if (choice.equals("n") || choice.equals("N")) {
-                    System.out.println("Thank you for playing!");
-                    setIsCorrect(true);
-                }
-            }
-            if (getGuessCount() > 6) {
-                PrintGameOver();
-                //System.out.println("Game Over!  Too many attempts!");
-                //break;
-                System.out.println("Play again? (Y/N)");
-                String choice = scanner.next();
-                if (choice.equals("y") || choice.equals("Y")) {
-                    Play();
-                } else if (choice.equals("n") || choice.equals("N")) {
-                    System.out.println("Thank you for playing!");
-                    break;
+
+        try {
+            setPlayerGuess(scanner.nextInt());
+            setGuessCount(getGuessCount() + 1);
+            while (!getIsCorrect()) {
+                if (getPlayerGuess() > getRand()) {
+                    System.out.println("Your guess is too high");
+                    System.out.println("Take a guess.");
+                    setPlayerGuess(scanner.nextInt());
+                    setGuessCount(getGuessCount() + 1);
+                } else if (getPlayerGuess() < getRand()) {
+                    System.out.println("Your guess is too low.");
+                    System.out.println("Take a guess");
+                    setPlayerGuess(scanner.nextInt());
+                    setGuessCount(getGuessCount() + 1);
+                } else if (getPlayerGuess() == getRand()) {
+                    System.out.println("Good job, " + getName() + "! You guessed my number in " + getGuessCount() + " guesses!");
                     //setIsCorrect(true);
+                    System.out.println("Would you like to play again? ");
+                    String choice = scanner.next();
+                    if (choice.equals("y") || choice.equals("Y")) {
+                        Play();
+                    } else if (choice.equals("n") || choice.equals("N")) {
+                        System.out.println("Thank you for playing!");
+                        setIsCorrect(true);
+                    }
+                }
+                if (getGuessCount() > 6) {
+                    PrintGameOver();
+                    //System.out.println("Game Over!  Too many attempts!");
+                    //break;
+                    System.out.println("Play again? (Y/N)");
+                    String choice = scanner.next();
+                    if (choice.equals("y") || choice.equals("Y")) {
+                        Play();
+                    } else if (choice.equals("n") || choice.equals("N")) {
+                        System.out.println("Thank you for playing!");
+                        break;
+                        //setIsCorrect(true);
+                    }
                 }
             }
+        }
+        catch (Exception e) {
+            System.out.println("Type Mismatch");
         }
 
     }
