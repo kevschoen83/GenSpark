@@ -58,7 +58,9 @@ class PlayGame {
     void Play() {
         generateRandomNumber();
         setGuessCount(0);
+
         System.out.println("Hello! What is your name?");
+
         try {
             setName(scanner.next());
             System.out.println("Well, " + getName() + ", I am thinking of a number between 1 and 20.");

@@ -17,12 +17,14 @@ class DragonCave {
         System.out.println("Welcome, brave warrior, to the Dragon Cave!  Tell us your name so that " +
                 "stories may be told and songs sung about your adventures.");
         System.out.print("Input your name: ");
+
         try {
             String name = scanner.nextLine();
             System.out.println("Welcome " + name + "!  Lets begin...");
         } catch (Exception e) {
             System.out.println("Input Mismatch.");
         }
+
         System.out.println();
         System.out.println();
         System.out.println("You are in a land full of dragons. In front of you, you see two caves. In one cave, the " +
@@ -32,6 +34,7 @@ class DragonCave {
     }
 
     void CaveChoice() {
+
         try {
             int choice = scanner.nextInt();
             if (choice == 1) {
@@ -56,5 +59,6 @@ class DragonCave {
         } catch (InputMismatchException e) {
             System.out.println("Input Mismatch.");
         }
+        
     }
 }
