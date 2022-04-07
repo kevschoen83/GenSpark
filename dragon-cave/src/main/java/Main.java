@@ -12,6 +12,18 @@ public class Main {
 
 class DragonCave {
     Scanner scanner = new Scanner(System.in);
+
+    private int choice;
+
+    // GETTERS
+    public int getChoice() {
+        return choice;
+    }
+    // SETTERS
+    public void setChoice(int choice) {
+        this.choice = choice;
+    }
+
     // Constructor
     public DragonCave() {
         System.out.println("Welcome, brave warrior, to the Dragon Cave!  Tell us your name so that " +
@@ -36,14 +48,15 @@ class DragonCave {
     void CaveChoice() {
 
         try {
-            int choice = scanner.nextInt();
-            if (choice == 1) {
+            setChoice(scanner.nextInt());
+            //int choice = scanner.nextInt();
+            if (getChoice() == 1) {
                 System.out.println();
                 System.out.println("You approach the cave...");
                 System.out.println("It is dark and spooky...");
                 System.out.println("A large dragon jumps out in front of you! He opens his jaws and...");
                 System.out.println("Gobbles you down in one bite!");
-            } else if (choice == 2) {
+            } else if (getChoice() == 2) {
                 System.out.println();
                 System.out.println("You approach the cave...");
                 System.out.println("As you near the entrance, you become aware of a unique smell and sound " +
@@ -59,6 +72,6 @@ class DragonCave {
         } catch (InputMismatchException e) {
             System.out.println("Input Mismatch.");
         }
-        
+
     }
 }
