@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static void main(String[] args) {
+        System.out.println("Welcome to Hangman!");
+        Main hangmanGame = new Main();
+        hangmanGame.newGame();
+        hangmanGame.play();
+    }
+
     public static final String[] WORDS = {"abstract", "assert", "boolean", "break", "byte",
         "case", "catch", "char", "class", "const", "continue", "default", "double", "do", "else",
         "enum", "extends", "false", "final", "finally", "float", "for", "goto", "if", "implements",
@@ -119,13 +126,6 @@ public class Main {
                 System.out.println("=> Word to find was: " + wordToFind);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to Hangman!");
-        Main hangmanGame = new Main();
-        hangmanGame.newGame();
-        hangmanGame.play();
     }
 
 }
