@@ -3,8 +3,9 @@ import java.util.Arrays;
 public class Land extends Grid {
     @Override
     public String toString() {
-        return "I am a Land object.\nI extend the Grid object...\n"; //+
-                //Arrays.deepToString(grid).replace("], ", "]\n");
+        return "I am a Land object.\nI extend the Grid object...\n" +
+                "\n" +
+                "Welcome to Humans Vs Goblins!";
     }
 
     Land() {
@@ -13,7 +14,9 @@ public class Land extends Grid {
     }
 
     void displayGrid() {
+        System.out.println("+++++++++++++++++++");
         System.out.println(Arrays.deepToString(grid).replace("], ", "]\n"));
+        System.out.println("+++++++++++++++++++");
     }
 
     void updateHumanGrid(int oldRow, int oldColumn, int newRow, int newColumn) {
@@ -22,8 +25,13 @@ public class Land extends Grid {
         displayGrid();
     }
 
-    void updateGoblinGrid(int row, int column) {
-        grid[row][column] = 'G';
+    void updateGoblinGrid(int oldRow, int oldColumn, int newRow, int newColumn) {
+        grid[oldRow][oldColumn] = '-';
+        grid[newRow][newColumn] = 'G';
         displayGrid();
+    }
+
+    void newGame() {
+        Land land = new Land();
     }
 }
