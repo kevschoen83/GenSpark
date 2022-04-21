@@ -5,6 +5,9 @@ public class Human {
     private int currentColumn;
     private int nextRow;
     private int nextColumn;
+    private int maxHealth;
+    private int currentHealth;
+    private int strength;
 
     char human = 'H';
 
@@ -26,6 +29,7 @@ public class Human {
     public int getCurrentColumn() { return currentColumn; }
     public int getNextRow() { return nextRow; }
     public int getNextColumn() { return nextColumn; }
+    public int getStrength() { return strength; }
 
     // SETTERS
     public void setStartingRow(int startingRow) { this.startingRow = startingRow; }
@@ -34,4 +38,9 @@ public class Human {
     public void setCurrentColumn(int currentColumn) { this.currentColumn = currentColumn; }
     public void setNextRow(int nextRow) { this.nextRow = nextRow; }
     public void setNextColumn(int nextColumn) { this.nextColumn = nextColumn; }
+    public void setStrength(int strength) { this.strength = strength; }
+
+    void attack(int strength) {
+
+    }
 }

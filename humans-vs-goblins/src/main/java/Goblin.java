@@ -5,6 +5,8 @@ public class Goblin {
     private int currentColumn;
     private int nextRow;
     private int nextColumn;
+    private int maxHealth;
+    private int currentHealth;
 
     char goblin = 'G';
 
@@ -24,6 +26,8 @@ public class Goblin {
     public int getCurrentColumn() { return currentColumn; }
     public int getNextRow() { return nextRow; }
     public int getNextColumn() { return nextColumn; }
+    public int getMaxHealth() { return maxHealth; }
+    public int getCurrentHealth() { return currentHealth; }
 
     // SETTERS
     public void setStartingRow(int startingRow) { this.startingRow = startingRow; }
@@ -32,4 +36,6 @@ public class Goblin {
     public void setCurrentColumn(int currentColumn) { this.currentColumn = currentColumn; }
     public void setNextRow(int nextRow) { this.nextRow = nextRow; }
     public void setNextColumn(int nextColumn) { this.nextColumn = nextColumn; }
+    public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
+    public void setCurrentHealth(int currentHealth) { this.currentHealth = currentHealth; }
 }
