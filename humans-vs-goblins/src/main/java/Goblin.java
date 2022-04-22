@@ -7,6 +7,7 @@ public class Goblin {
     private int nextColumn;
     private int maxHealth;
     private int currentHealth;
+    private int defense;
 
     char goblin = 'G';
 
@@ -28,6 +29,7 @@ public class Goblin {
     public int getNextColumn() { return nextColumn; }
     public int getMaxHealth() { return maxHealth; }
     public int getCurrentHealth() { return currentHealth; }
+    public int getDefense() { return defense; }
 
     // SETTERS
     public void setStartingRow(int startingRow) { this.startingRow = startingRow; }
@@ -38,4 +40,5 @@ public class Goblin {
     public void setNextColumn(int nextColumn) { this.nextColumn = nextColumn; }
     public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
     public void setCurrentHealth(int currentHealth) { this.currentHealth = currentHealth; }
+    public void setDefense(int defense) { this.defense = defense; }
 }

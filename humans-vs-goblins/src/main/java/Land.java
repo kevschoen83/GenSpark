@@ -9,7 +9,8 @@ public class Land extends Grid {
     }
 
     Land() {
-        grid[0][3] = 'G';
+        grid[2][2] = 'G';
+        //grid[3][1] = 'G';
         grid[5][3] = 'H';
     }
 
@@ -25,9 +26,9 @@ public class Land extends Grid {
         displayGrid();
     }
 
-    void updateGoblinGrid(int oldRow, int oldColumn, int newRow, int newColumn) {
+    void updateGoblinGrid(int oldRow, int oldColumn) {
         grid[oldRow][oldColumn] = '-';
-        grid[newRow][newColumn] = 'G';
+        //grid[newRow][newColumn] = 'G';
         displayGrid();
     }
 

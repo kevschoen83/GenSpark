@@ -8,6 +8,7 @@ public class Human {
     private int maxHealth;
     private int currentHealth;
     private int strength;
+    private int hitChance;
 
     char human = 'H';
 
@@ -30,6 +31,7 @@ public class Human {
     public int getNextRow() { return nextRow; }
     public int getNextColumn() { return nextColumn; }
     public int getStrength() { return strength; }
+    public int getHitChance() { return hitChance; }
 
     // SETTERS
     public void setStartingRow(int startingRow) { this.startingRow = startingRow; }
@@ -39,6 +41,7 @@ public class Human {
     public void setNextRow(int nextRow) { this.nextRow = nextRow; }
     public void setNextColumn(int nextColumn) { this.nextColumn = nextColumn; }
     public void setStrength(int strength) { this.strength = strength; }
+    public void setHitChance(int hitChance) { this.hitChance = hitChance; }
 
     void attack(int strength) {
 
