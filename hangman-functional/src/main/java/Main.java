@@ -87,6 +87,8 @@ public class Main {
 
             // c is now a letter entered
             letters.add(c);
+        } else {
+            System.out.println("Letter already entered!  Please try again.");
         }
     }
 
