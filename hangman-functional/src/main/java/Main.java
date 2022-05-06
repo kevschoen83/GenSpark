@@ -1,6 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,6 +9,16 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Main {
+    private String name;
+    private int score;
+
+    // GETTERS
+    public String getName() { return name; }
+    public int getScore() { return score; }
+    //SETTERS
+    public void setName(String name) { this.name = name; }
+    public void setScore(int score) { this.score = score; }
+
     public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Hangman!");
         Main hangmanGame = new Main();
@@ -45,21 +53,25 @@ public class Main {
         return WORDS[RANDOM.nextInt(WORDS.length)];
     }
 
-    public void writePlayerInfoToFile(String name, String score) throws IOException {
+    public void writePlayerInfoToFile(String name, int score) throws IOException {
         String fileName = "C:\\GenSpark\\GenSpark\\hangman-functional\\src\\main\\resources" +
                 "\\Name-Score";
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
         writer.write(name);
-        writer.write(score);
+        writer.newLine();
+        writer.write("" + score);
         writer.close();
     }
 
     public void newGame() throws IOException {
-        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
-        String name = input.nextLine();
-        System.out.println("Welcome " + name + "!");
-        writePlayerInfoToFile(name, "100");
+        setName(scanner.next());
+        System.out.println("Welcome " + getName() + "!");
+        setScore(0);
+        System.out.println(getScore());
+        writePlayerInfoToFile(getName(), getScore());
+//        System.out.println(checkForHighScore());
 
         nbErrors = 0;
         letters.clear();
@@ -91,7 +103,7 @@ public class Main {
         return builder.toString();
     }
 
-    private void enter(String c) {
+    private void enter(String c) throws IOException {
         String[] hangman;
         Path path = Paths.get("C:\\GenSpark\\GenSpark\\hangman-functional\\src\\" +
                         "main\\resources\\Hangman-Art");
@@ -99,6 +111,9 @@ public class Main {
         if (!letters.contains(c)) {
             // we check if word to find contains c
             if (wordToFind.contains(c)) {
+                // increase the score
+                setScore(getScore() + 10);
+                System.out.println("Score: " + getScore());
                 // if so, we replace _ by the character c
                 int index = wordToFind.indexOf(c);
 
@@ -112,6 +127,7 @@ public class Main {
                 try {
                     hangman = Files.readString(path).split(",");
                     System.out.println(hangman[nbErrors - 1]);
+                    System.out.println("Score: " + getScore());
                 } catch (IOException ignored) { }
             }
 
@@ -121,6 +137,7 @@ public class Main {
             try {
                 hangman = Files.readString(path).split(",");
                 System.out.println(hangman[nbErrors - 1]);
+                System.out.println("Score: " + getScore());
             } catch (IOException ignored) { }
 
             System.out.println("Letter already entered!  Please try again.");
@@ -130,7 +147,7 @@ public class Main {
 /*    so to determine that the mystery word has 3 As in it, i used a filter
     and i revealed those As with a map*/
 
-    public void play() {
+    public void play() throws IOException{
         try (Scanner input = new Scanner(System.in)) {
             // we play while nbErrors is lower than max errors or user has found the word
             while (nbErrors < MAX_ERRORS) {
@@ -152,6 +169,8 @@ public class Main {
                 // check if word is found
                 if (wordFound()) {
                     System.out.println("\nYou win!");
+                    writePlayerInfoToFile(getName(), getScore());
+                    checkForHighScore();
                     break;
                 } else {
                     // we display nb tries remaining for the user
@@ -166,4 +185,33 @@ public class Main {
             }
         }
     }
+
+    public void checkForHighScore() throws IOException {
+        File file = new File("C:\\\\GenSpark\\\\GenSpark\\\\hangman-functional\\\\src" +
+                "\\\\main\\\\resources\\\\Name-Score");
+        Scanner scanner = new Scanner(file);
+        scanner.nextLine();
+        System.out.println("Test");
+        int readScore = scanner.nextInt();
+        System.out.println(readScore);
+        if (getScore() > scanner.nextInt()) {
+            System.out.println("New High Score!");
+        }
+    }
+
+/*    public int checkForHighScore() throws IOException {
+//        String fileName = "C:\\GenSpark\\GenSpark\\hangman-functional\\src\\main\\resources\\Name-Score";
+
+        File file = new File("C:\\GenSpark\\GenSpark\\hangman-functional\\src" +
+                "\\main\\resources\\Name-Score");
+        Scanner scanner = new Scanner(file);
+        scanner.nextLine();
+        return scanner.nextInt();
+*//*        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        String line;
+        while((line = reader.readLine()) != null) {
+            line += line;
+        }
+        return line;*//*
+    }*/
 }
