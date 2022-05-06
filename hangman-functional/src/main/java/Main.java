@@ -1,9 +1,17 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Hangman!");
         Main hangmanGame = new Main();
         hangmanGame.newGame();
@@ -21,7 +29,7 @@ public class Main {
     public static final Random RANDOM = new Random();
 
     // Max errors before player loses game
-    public static final int MAX_ERRORS = 6;
+    public static final int MAX_ERRORS = 7;
 
     // Word to find
     private String wordToFind;
@@ -37,7 +45,22 @@ public class Main {
         return WORDS[RANDOM.nextInt(WORDS.length)];
     }
 
-    public void newGame() {
+    public void writePlayerInfoToFile(String name, String score) throws IOException {
+        String fileName = "C:\\GenSpark\\GenSpark\\hangman-functional\\src\\main\\resources" +
+                "\\Name-Score";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        writer.write(name);
+        writer.write(score);
+        writer.close();
+    }
+
+    public void newGame() throws IOException {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String name = input.nextLine();
+        System.out.println("Welcome " + name + "!");
+        writePlayerInfoToFile(name, "100");
+
         nbErrors = 0;
         letters.clear();
         wordToFind = nextWordToFind();
@@ -69,6 +92,9 @@ public class Main {
     }
 
     private void enter(String c) {
+        String[] hangman;
+        Path path = Paths.get("C:\\GenSpark\\GenSpark\\hangman-functional\\src\\" +
+                        "main\\resources\\Hangman-Art");
         // we update only if c has not already been entered
         if (!letters.contains(c)) {
             // we check if word to find contains c
@@ -83,14 +109,26 @@ public class Main {
             } else {
                 // c not in the word => error
                 nbErrors++;
+                try {
+                    hangman = Files.readString(path).split(",");
+                    System.out.println(hangman[nbErrors - 1]);
+                } catch (IOException ignored) { }
             }
 
             // c is now a letter entered
             letters.add(c);
         } else {
+            try {
+                hangman = Files.readString(path).split(",");
+                System.out.println(hangman[nbErrors - 1]);
+            } catch (IOException ignored) { }
+
             System.out.println("Letter already entered!  Please try again.");
         }
     }
+
+/*    so to determine that the mystery word has 3 As in it, i used a filter
+    and i revealed those As with a map*/
 
     public void play() {
         try (Scanner input = new Scanner(System.in)) {
