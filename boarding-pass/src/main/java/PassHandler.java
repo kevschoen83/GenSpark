@@ -17,10 +17,10 @@ public class PassHandler {
         //TODO Perform calculations to determine ETA, Price and randomly generate a unique Boarding Pass ID
         //generateData(userInput);
 
+        /*currentTicket = new Ticket(userInput.getName(), userInput.getEmail(), userInput.getPhoneNumber(),
+                userInput.getGender(), userInput.getAge(), userInput.getDate(),
+                userInput.getDestination(), userInput.getDepartureTime());*/
         //pass input from user and calculations to Ticket constructor to create a valid ticket object
-        currentTicket = new Ticket(/*
-        userName, email, phoneNum, gender, age, etc.*/
-        );
 
         //TODO Add ticket to ticketList, handle condition of duplicate key and generate new key until non duplicate is found
         //ticketList.put(currentTicket.ID, currentTicket);
