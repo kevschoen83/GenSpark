@@ -2,33 +2,94 @@ import java.util.Scanner;
 
 public class Console {
 
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private String gender;
+    private int age;
+    private String date;
+    private String destination;
+    private String departureTime;
+
     public void gatherUserInput() {
-        Scanner input = new Scanner(System.in);
+
         System.out.print("Enter your full name:  ");
-        String name = input.nextLine();
+        name = getInput();
         System.out.print("Enter your email address:  ");
-        String email = input.nextLine();
+        email = getInput();
         System.out.print("Enter your phone number:  ");
-        String phoneNumber = input.nextLine();
+        phoneNumber = getInput();
         System.out.print("Enter your gender:  ");
-        String gender = input.nextLine();
+        gender = getInput();
         System.out.print("Enter your age:  ");
-        int age = Integer.parseInt(input.nextLine());
+        try {
+            age = Integer.parseInt(getInput());
+        }
+        catch(Exception e) {
+            age = -1;
+        }
+
         System.out.print("Enter the date of your flight:  ");
-        String date = input.nextLine();
+        date = getInput();
         System.out.print("Enter your destination:  ");
-        String destination = input.nextLine();
+        destination = getInput();
         System.out.print("Enter your departure time:  ");
-        String departureTime = input.nextLine();
+        departureTime = getInput();
         System.out.println();
 
-        System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Gender: " + gender);
-        System.out.println("Age: " + age);
-        System.out.println("Date: " + date);
-        System.out.println("Destination: " + destination);
-        System.out.println("Departure Time: " + departureTime);
+
+    }
+
+    public static void displayTicket(Ticket ticket) {
+        System.out.println("Name: " + ticket.getName());
+        System.out.println("Email: " + ticket.getEmail());
+        System.out.println("Phone Number: " + ticket.getPhone());
+        System.out.println("Gender: " + ticket.getGender());
+        System.out.println("Age: " + ticket.getAge());
+        System.out.println("Date: " + ticket.getDate());
+        System.out.println("Destination: " + ticket.getDestination());
+        System.out.println("Departure Time: " + ticket.getDepartureTime());
+    }
+
+    private String getInput() {
+        Scanner input = new Scanner(System.in);
+        try {
+            return input.nextLine();
+        }catch (Exception e) {
+            System.out.println("Invalid input");
+            return getInput();
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
     }
 }
