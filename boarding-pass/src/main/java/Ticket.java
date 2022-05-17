@@ -25,11 +25,48 @@ public class Ticket {
         this.departureTime = departureTime;
 
         //TODO generate data methods
+        setBoardingPassID(generateBoardingPassID());
+
+    }
+
+    int generateBoardingPassID() {
+        return (int) (Math.random() * 1000000);
+    }
+
+    int generateETA(String origin, String destination, int departureTime) {
+        return 0;
+    }
+
+/*    Ticket Price should be calculated as follows:
+    Age < = 12, 50% reduction of ticket price regardless of gender
+    Age > = 60, 60% reduction of ticket price regardless of gender
+    Females, 25% discount on the ticket price*/
+
+    double generatePrice(int age, String gender) {
+        int price = 0;
+        if (age <= 12) {
+            return price * 0.5;
+        } else if (age >= 60) {
+            return price * 0.6;
+        } else if (gender.equals("Female") || gender.equals("female")) {
+            return price * 0.25;
+        } else {
+            return price;
+        }
+    }
+
+    public void setETA(int eta) {
+        this.eta = eta;
+    }
+
+    public void setBoardingPassID(int boardingPassID) {
+        this.boardingPassID = boardingPassID;
     }
 
     public int getBoardingPassID() {
         return boardingPassID;
     }
+
     public int getDate() {
         return date;
     }
