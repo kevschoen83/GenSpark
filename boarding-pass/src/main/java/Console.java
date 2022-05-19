@@ -4,37 +4,39 @@ public class Console {
 
     private String name;
     private String email;
-    private String phoneNumber;
+    private long phoneNumber;
     private String gender;
     private int age;
-    private String date;
+    private long date;
     private String destination;
-    private String departureTime;
+    private int departureTime;
 
     public void gatherUserInput() {
 
         System.out.print("Enter your full name:  ");
         name = getInput();
-        System.out.print("Enter your email address:  ");
-        email = getInput();
+
+        System.out.print("Enter your Email:  ");
+        email = promptEmail();
+
         System.out.print("Enter your phone number:  ");
-        phoneNumber = getInput();
+        phoneNumber = promptLong("Phone Number");
+
         System.out.print("Enter your gender:  ");
         gender = getInput();
+
         System.out.print("Enter your age:  ");
-        try {
-            age = Integer.parseInt(getInput());
-        }
-        catch(Exception e) {
-            age = -1;
-        }
+        age = promptInt("Age");
 
         System.out.print("Enter the date of your flight:  ");
-        date = getInput();
+        date = promptLong("Date");
+
         System.out.print("Enter your destination:  ");
         destination = getInput();
+
         System.out.print("Enter your departure time:  ");
-        departureTime = getInput();
+        departureTime = promptInt("Departure Time");
+
         System.out.println();
 
 
@@ -49,6 +51,39 @@ public class Console {
         System.out.println("Date: " + ticket.getDate());
         System.out.println("Destination: " + ticket.getDestination());
         System.out.println("Departure Time: " + ticket.getDepartureTime());
+    }
+
+    private String promptEmail() {
+        String input = getInput();
+        if(!input.contains("@")) {
+            System.out.println("Invalid Email, please enter a valid email format (yourEmail@domain.com)");
+            input = promptEmail();
+        }
+        return input;
+    }
+
+    private int promptInt(String fieldInfo) {
+        try {
+            return Integer.parseInt(getInput());
+        }
+        catch(NumberFormatException e) {
+            System.out.println("Invalid " + fieldInfo + ", please enter a valid integer format");
+            if(fieldInfo.toLowerCase().startsWith("departure"))
+                System.out.println(fieldInfo + " format example: 1730  (5:30pm)");
+            return promptInt(fieldInfo);
+        }
+    }
+
+    private long promptLong(String fieldInfo) {
+        try {
+            return Long.valueOf(getInput());
+        }
+        catch(NumberFormatException e) {
+            System.out.println("Invalid " + fieldInfo + ", please enter a valid long format");
+            if(fieldInfo.toLowerCase().startsWith("date"))
+                System.out.println(fieldInfo + " format example: 4022022  (April 2, 2022)");
+            return promptLong(fieldInfo);
+        }
     }
 
     private String getInput() {
@@ -69,7 +104,7 @@ public class Console {
         return email;
     }
 
-    public String getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -81,7 +116,7 @@ public class Console {
         return age;
     }
 
-    public String getDate() {
+    public long getDate() {
         return date;
     }
 
@@ -89,7 +124,7 @@ public class Console {
         return destination;
     }
 
-    public String getDepartureTime() {
+    public int getDepartureTime() {
         return departureTime;
     }
 }
