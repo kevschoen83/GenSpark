@@ -1,20 +1,22 @@
 public class Ticket {
 
     private int boardingPassID;
-    private int date;
+    private long date;
     private String origin;
     private String destination;
     private int eta;
     private int departureTime;
     private String name;
     private String email;
-    private int phone;
+    private long phone;
     private String gender;
     private int age;
     private double price;
+    private String[] originList = {"Cebu", "Botswana" , "Conakry", "Nice", "Shenzhen"};
+    private double distanceInMiles;
 
     public Ticket(String name, String email,
-                  int phone, String gender, int age, int date, String destination, int departureTime) {
+                  long phone, String gender, int age, long date, String destination, int departureTime) {
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -23,18 +25,30 @@ public class Ticket {
         this.date = date;
         this.destination = destination;
         this.departureTime = departureTime;
-
-        //TODO generate data methods
-        setBoardingPassID(generateBoardingPassID());
+        this.origin = originList[(int)(Math.random() * (originList.length - 1))];
+        distanceInMiles = generateDistance(origin, this.destination);
+        this.eta = generateETA(distanceInMiles, this.departureTime);
+        setBoardingPassID();
+        price = generatePrice(this.age, this.gender, distanceInMiles);
 
     }
 
-    int generateBoardingPassID() {
+    private int generateBoardingPassID() {
         return (int) (Math.random() * 1000000);
     }
 
-    int generateETA(String origin, String destination, int departureTime) {
-        return 0;
+    private int generateETA(double distance, int departureTime) {
+        //distance(miles) divided by average speed of commercial aircraft (575mph)
+        double timeInHours = (int)(distance / 575.0 * 10) / 10.0; //truncate value after 1st decimal place
+        int eta = departureTime + (int)(timeInHours * 100);
+        if(eta > 2400)
+            eta -= 2400;
+        return eta;
+    }
+
+    private double generateDistance(String origin, String destination) {
+        int distance = Math.abs((origin.hashCode() - destination.hashCode()) / 100);
+        return (double)distance / 5280.0 ;
     }
 
 /*    Ticket Price should be calculated as follows:
@@ -42,32 +56,32 @@ public class Ticket {
     Age > = 60, 60% reduction of ticket price regardless of gender
     Females, 25% discount on the ticket price*/
 
-    double generatePrice(int age, String gender) {
-        int price = 0;
+    double generatePrice(int age, String gender, double distance) {
+        double price = distance * (0.013 * 10); //distance in miles multiplied by avg (flight cost per mile * 10)
+
         if (age <= 12) {
-            return price * 0.5;
+            price *= 0.5;
         } else if (age >= 60) {
-            return price * 0.6;
-        } else if (gender.equals("Female") || gender.equals("female")) {
-            return price * 0.25;
-        } else {
-            return price;
+            price *= 0.6;
+        } else if (gender.toLowerCase().startsWith("f")) {
+            price *= 0.25;
         }
+
+        //truncate value after 2nd decimal place
+        price = (int)(price * 100) / 100.00;
+
+        return price;
     }
 
-    public void setETA(int eta) {
-        this.eta = eta;
-    }
-
-    public void setBoardingPassID(int boardingPassID) {
-        this.boardingPassID = boardingPassID;
+    public void setBoardingPassID() {
+        this.boardingPassID = generateBoardingPassID();
     }
 
     public int getBoardingPassID() {
         return boardingPassID;
     }
 
-    public int getDate() {
+    public long getDate() {
         return date;
     }
 
@@ -95,7 +109,7 @@ public class Ticket {
         return email;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 
