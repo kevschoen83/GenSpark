@@ -63,17 +63,24 @@ public class FileHandler {
     }
 
     //returns a list of all ticket IDs from files within src/main/resources/ folder
+    //creates the resources folder if it does not exist
     public List<Integer> getPreviousTicketNumbers() {
         List<Integer> ticketIDs = new ArrayList<>();
         File folder = new File("src/main/resources/");
+        if (!folder.exists()){
+            folder.mkdir();
+        }
         File[] listOfFiles = folder.listFiles();
 
         //add the ID of each ticket file to ticketIDs array
-        for(File file : listOfFiles) {
-            if(file.isFile() && file.getName().startsWith("Ticket")) {
-                ticketIDs.add(getIDFromFile(file));
+        if(listOfFiles != null) {
+            for(File file : listOfFiles) {
+                if(file.isFile() && file.getName().startsWith("Ticket")) {
+                    ticketIDs.add(getIDFromFile(file));
+                }
             }
         }
+
 
         return ticketIDs;
     }
