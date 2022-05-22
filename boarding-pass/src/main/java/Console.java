@@ -19,7 +19,7 @@ public class Console {
         System.out.print("Enter your Email:  ");
         email = promptEmail();
 
-        System.out.print("Enter your phone number:  ");
+        System.out.print("Enter your phone number (digits only):  ");
         phoneNumber = promptLong("Phone Number");
 
         System.out.print("Enter your gender:  ");
@@ -28,13 +28,13 @@ public class Console {
         System.out.print("Enter your age:  ");
         age = promptInt("Age");
 
-        System.out.print("Enter the date of your flight:  ");
+        System.out.print("Enter the date of your flight (digits only):  ");
         date = promptLong("Date");
 
         System.out.print("Enter your destination:  ");
         destination = getInput();
 
-        System.out.print("Enter your departure time:  ");
+        System.out.print("Enter your departure time (military time):  ");
         departureTime = promptInt("Departure Time");
 
         System.out.println();
