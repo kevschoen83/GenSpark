@@ -14,17 +14,17 @@ public class PassHandler {
 
         userInput.gatherUserInput(); //Gathers user input from console
 
+        //pass input from user to Ticket constructor to create a Ticket object
         currentTicket = new Ticket(userInput.getName(), userInput.getEmail(), userInput.getPhoneNumber(),
                 userInput.getGender(), userInput.getAge(), userInput.getDate(),
                 userInput.getDestination(), userInput.getDepartureTime());
 
-        //pass input from user and calculations to Ticket constructor to create a valid ticket object
+        //handle condition of duplicate key (BoardingPassID) and generate new key until non duplicate is found
+        while(ticketIDList.contains(currentTicket.getBoardingPassID()))
+            currentTicket.setBoardingPassID(); //handle duplicate key
 
-        //TODO Add ticket to ticketList, handle condition of duplicate key and generate new key until non duplicate is found
-        //while(ticketIDList.contains(currentTicket.getBoardingPassID()))
-            //currentTicket.generateNewID();
         ticketIDList.add(currentTicket.getBoardingPassID());
-        //handle duplicate key
+
 
         fileHandler.createFile(currentTicket);
 
