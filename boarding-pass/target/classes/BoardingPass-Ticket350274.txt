@@ -1,0 +1,12 @@
+Boarding Pass Number: 350274
+Date: 2312022
+Origin: Cebu
+Destination: New York
+ETA: 1650
+Departure Time: 1200
+Passenger Name: Mark Cuban
+Passenger Email: fdst@gmail.com
+Passenger Phone: 342839523
+Passenger Gender: male
+Passenger Age: 34
+Total Price: 339.99
