@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+    <bean id="Student" class="org.genspark.Student">
+        <property name="id" value="100012"/>
+        <property name="name" value="Kevin"/>
+        <property name="ph" ref="Phone"/>
+        <property name="add" ref="Address"/>
+    </bean>
+
+    <bean id="Address" class="org.genspark.Address">
+        <property name="city" value="Abita Springs"/>
+        <property name="state" value="LA"/>
+        <property name="country" value="United States"/>
+        <property name="zipcode" value="70420"/>
+    </bean>
+
+    <bean id="Phone" class="org.genspark.Phone">
+        <constructor-arg index="0" value="985-273-4131"/>
+    </bean>
+
+</beans>
+
+        <!--    <bean id="Vehicle" class="org.genspark.Car">
+        &lt;!&ndash;        <constructor-arg index="0" ref="Tire"/>&ndash;&gt;
+                <property name="tire" ref="Tire"/>
+            </bean>
+
+            <bean id="Tire" class="org.genspark.Tire">
+                <constructor-arg index="0" value="CEAT"/>
+                <constructor-arg index="1" type="int" value="17"/>
+        &lt;!&ndash;        <property name="brand" value="MRF" />
+                <property name="size" value="17" />&ndash;&gt;
+            </bean>-->
