@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "js/form.js"></script>
+    <link rel="stylesheet" href="css/simpleform.css">
+    <title>Simple Contact Us Form</title>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Contact Us Form</h2>
+    <div id="design">
+        <form action="/nothing">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Type your first name...">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Type your last name...">
+
+            <label for="phonenumber">Phone Number</label>
+            <input type="text" id="phonenumber" name="phonenumber" placeholder="Type your phone number...">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Type your email address...">
+
+            <label for="occ">Occupation</label>
+            <input type="text" name="occupation" id="occ" placeholder="Type your occupation...">
+
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="Australia">Australia</option>
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+            </select>
+
+            <label for="comment">Comment</label>
+            <input type="text" name="comment" id="comment" placeholder="Type your comment...">
+
+            <input type="button" value="Submit" onclick="showtext()">
+        </form>
+    </div>
+
+    <div id="show" class="showtxt">
+        
+    </div>
+</body>
+</html>
