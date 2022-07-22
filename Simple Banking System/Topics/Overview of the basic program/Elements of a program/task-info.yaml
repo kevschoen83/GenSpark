@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: <b>void</b> is a statement
+- text: <b>main</b> is a keyword
+- text: <b>HelloWorldProgram</b> is a name
+- text: <b>class</b> is a keyword
+files:
+- name: src/Task.java
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    public class Task {
+      public static void main(String[] args) {
+        // put your code here
+      }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/3757#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 27 Jun 2022 17:09:05 UTC
+record: -1
+selected_options:
+- 2
+- 3

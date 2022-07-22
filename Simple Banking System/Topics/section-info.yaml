@@ -1,0 +1,39 @@
+content:
+- Overview of the basic program
+- Printing data
+- Scanning the input
+- Integer types and operations
+- Relational operators
+- Conditional statement
+- Increment and decrement
+- The while and do-while loops
+- The for-loop
+- Switch statement
+- The main method
+- Functional decomposition
+- Overloading
+- Primitive and reference types
+- Arrays as parameters
+- Iterating over arrays
+- Introduction to Java
+- Types and variables
+- Comments
+- Declaring a method
+- Errors in programs
+- What is an exception
+- Defining classes
+- Constructor
+- Instance methods
+- Package
+- Getters and setters
+- Inheritance
+- Multiple constructors
+- The keyword super
+- Objects
+- Hierarchy of exceptions
+- Exception handling
+- Random
+- Multidimensional array
+- java.util.Arrays
+- Files
+- Command-line arguments
