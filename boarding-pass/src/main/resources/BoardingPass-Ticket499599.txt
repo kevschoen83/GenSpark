@@ -1,0 +1,12 @@
+Boarding Pass Number: 499599
+Date: 6042023
+Origin: Cebu
+Destination: Atlanta, GA
+ETA: 2290
+Departure Time: 2200
+Passenger Name: Kevin Schoen
+Passenger Email: kevschoen83@gmail.com
+Passenger Phone: 9852734131
+Passenger Gender: Male
+Passenger Age: 39
+Total Price: 71.44

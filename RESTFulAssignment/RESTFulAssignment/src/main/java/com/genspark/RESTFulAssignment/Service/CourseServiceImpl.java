@@ -2,6 +2,7 @@ package com.genspark.RESTFulAssignment.Service;
 
 import com.genspark.RESTFulAssignment.Dao.CourseDao;
 import com.genspark.RESTFulAssignment.Entity.Course;
+import com.genspark.RESTFulAssignment.ExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
