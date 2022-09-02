@@ -1,4 +1,4 @@
-package com.genspark.GameLibrary.Entity;
+package com.genspark.RESTFulAssignment.GameLibrary.Entity;
 
 import javax.persistence.*;
 

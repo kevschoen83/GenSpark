@@ -1,4 +1,4 @@
-package com.genspark.GameLibrary;
+package com.genspark.RESTFulAssignment.GameLibrary;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;

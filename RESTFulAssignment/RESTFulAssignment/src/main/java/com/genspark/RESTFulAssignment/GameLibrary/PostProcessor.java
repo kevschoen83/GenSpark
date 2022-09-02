@@ -1,4 +1,4 @@
-package com.genspark.GameLibrary;
+package com.genspark.RESTFulAssignment.GameLibrary;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

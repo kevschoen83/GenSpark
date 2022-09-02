@@ -1,6 +1,5 @@
-package com.genspark.GameLibrary;
+package com.genspark.RESTFulAssignment.GameLibrary;
 
-import com.genspark.RESTFulAssignment.RestFulAssignmentApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

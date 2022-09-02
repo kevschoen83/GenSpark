@@ -67,4 +67,5 @@ public class Employee {
     public void setState(String state) {
         this.state = state;
     }
+
 }

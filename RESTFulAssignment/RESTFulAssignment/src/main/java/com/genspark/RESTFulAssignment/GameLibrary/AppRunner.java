@@ -1,4 +1,4 @@
-package com.genspark.GameLibrary;
+package com.genspark.RESTFulAssignment.GameLibrary;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

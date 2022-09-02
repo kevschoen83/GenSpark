@@ -1,6 +1,6 @@
-package com.genspark.GameLibrary.Service;
+package com.genspark.RESTFulAssignment.GameLibrary.Service;
 
-import com.genspark.GameLibrary.Entity.Game;
+import com.genspark.RESTFulAssignment.GameLibrary.Entity.Game;
 
 import java.util.List;
 

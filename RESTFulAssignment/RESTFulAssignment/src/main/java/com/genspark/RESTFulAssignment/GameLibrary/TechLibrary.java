@@ -1,4 +1,4 @@
-package com.genspark.GameLibrary;
+package com.genspark.RESTFulAssignment.GameLibrary;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;

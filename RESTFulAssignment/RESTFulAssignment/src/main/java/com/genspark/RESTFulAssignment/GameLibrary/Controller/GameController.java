@@ -1,7 +1,7 @@
-package com.genspark.GameLibrary.Controller;
+package com.genspark.RESTFulAssignment.GameLibrary.Controller;
 
-import com.genspark.GameLibrary.Entity.Game;
-import com.genspark.GameLibrary.Service.GameService;
+import com.genspark.RESTFulAssignment.GameLibrary.Entity.Game;
+import com.genspark.RESTFulAssignment.GameLibrary.Service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
